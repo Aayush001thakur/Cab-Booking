@@ -1,0 +1,5 @@
+module.exports.userController=require("./user.controller")
+module.exports.driverController=require("./driver.controller")
+module.exports.publicController=require("./public.controller")
+module.exports.messageController=require("./message.controller")
+module.exports.bookingController=require("./booking.controller")

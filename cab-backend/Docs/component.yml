@@ -1,0 +1,162 @@
+components:
+  schemas:
+    KycResponse:  
+      response:
+        msg: done
+        res:
+          status: success
+          verification:
+            id: aa6a758b-4fa7-49a6-b4ca-d0661982dfce
+            url: https://alchemy.veriff.com/v/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxNDg1MjksInNlc3Npb25faWQiOiJhYTZhNzU4Yi00ZmE3LTQ5YTYtYjRjYS1kMDY2MTk4MmRmY2UiLCJpaWQiOiJjMGM1MmU4MS1iYjI4LTRlZDgtYmVjNC0xOWU5ODZmZDAxYzcifQ.mxb2Gyv-FFwNxnCdg_BMN0YpZYRTCOBWqOU3_peWbhQ
+            vendorData:
+            host: https://alchemy.veriff.com
+            status: created
+            sessionToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxNDg1MjksInNlc3Npb25faWQiOiJhYTZhNzU4Yi00ZmE3LTQ5YTYtYjRjYS1kMDY2MTk4MmRmY2UiLCJpaWQiOiJjMGM1MmU4MS1iYjI4LTRlZDgtYmVjNC0xOWU5ODZmZDAxYzcifQ.mxb2Gyv-FFwNxnCdg_BMN0YpZYRTCOBWqOU3_peWbhQ
+        FrontResponse:
+          status: success
+          image:
+            id: a0cb241e-c882-41d9-ba91-99ccbcf03f9f
+            name: document-front
+            context: document-front
+            timestamp:
+            size: 7858
+            mimetype: image/jpeg
+            sessionId: 92180fda-cffb-4f4c-99cc-688b16c3f9e0
+            url: https://api.saas-4.veriff.me/v1/media/a0cb241e-c882-41d9-ba91-99ccbcf03f9f
+        BackResponse:
+          status: success
+          image:
+            id: 428cd1ce-58ec-45b5-80f0-082aff98668f
+            name: document-back
+            context: document-back
+            timestamp:
+            size: 7858
+            mimetype: image/jpeg
+            sessionId: 92180fda-cffb-4f4c-99cc-688b16c3f9e0
+            url: https://api.saas-4.veriff.me/v1/media/428cd1ce-58ec-45b5-80f0-082aff98668f
+        SelfieResponse:
+          status: success
+          image:
+            id: 14d0b3e5-5610-4fe2-9c47-3b2e0936cf86
+            name: face
+            context: face
+            timestamp:
+            size: 41361
+            mimetype: image/jpeg
+            sessionId: 92180fda-cffb-4f4c-99cc-688b16c3f9e0
+            url: https://api.saas-4.veriff.me/v1/media/14d0b3e5-5610-4fe2-9c47-3b2e0936cf86
+        submiResponse:
+          status: success
+          verification:
+            id: aa6a758b-4fa7-49a6-b4ca-d0661982dfce
+            url: https://magic.saas-4.veriff.me/v/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxNDg1MjksInNlc3Npb25faWQiOiJhYTZhNzU4Yi00ZmE3LTQ5YTYtYjRjYS1kMDY2MTk4MmRmY2UiLCJpaWQiOiJjMGM1MmU4MS1iYjI4LTRlZDgtYmVjNC0xOWU5ODZmZDAxYzcifQ.mxb2Gyv-FFwNxnCdg_BMN0YpZYRTCOBWqOU3_peWbhQ
+            vendorData:
+            host: https://magic.saas-4.veriff.me
+            status: submitted
+            sessionToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQxNDg1MjksInNlc3Npb25faWQiOiJhYTZhNzU4Yi00ZmE3LTQ5YTYtYjRjYS1kMDY2MTk4MmRmY2UiLCJpaWQiOiJjMGM1MmU4MS1iYjI4LTRlZDgtYmVjNC0xOWU5ODZmZDAxYzcifQ.mxb2Gyv-FFwNxnCdg_BMN0YpZYRTCOBWqOU3_peWbhQ
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        role:
+          type: string
+          enum: [user, admin]
+      example:
+        id: 5ebac534954b54139806c112
+        email: fake@example.com
+        name: fake name
+        role: user
+
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+        expires:
+          type: string
+          format: date-time
+      example:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWJhYzUzNDk1NGI1NDEzOTgwNmMxMTIiLCJpYXQiOjE1ODkyOTg0ODQsImV4cCI6MTU4OTMwMDI4NH0.m1U63blB0MLej_WfB7yC2FTMnCziif9X8yzwDEfJXAg
+        expires: 2020-05-12T16:18:04.793Z
+
+    AuthTokens:
+      type: object
+      properties:
+        access:
+          $ref: '#/components/schemas/Token'
+        refresh:
+          $ref: '#/components/schemas/Token'
+
+    RegisterOtpToken:
+      type: object
+      properties:
+        token:
+          $ref: '#/components/schemas/Token'
+
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+
+  responses:
+    DuplicateEmail:
+      description: Email already taken
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: Email already taken
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: Please authenticate
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
+    TestError:
+      description: This is test error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: This is message for test error
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
